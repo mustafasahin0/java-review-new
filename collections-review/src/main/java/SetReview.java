@@ -12,6 +12,7 @@ public class SetReview {
         mySet.add(new Student(7, "Ibadet"));
         mySet.add(new Student(8, "Ahmet"));
         mySet.add(new Student(9, "Muhabbbet"));
+        mySet.add(new Student(9, "Muhabbbet"));
 
         System.out.println(mySet);
 
@@ -20,8 +21,19 @@ public class SetReview {
         numSet.add(2);
         numSet.add(2);
 
-        System.out.println(numSet);
-        System.out.println(numSet.add(2));
+        System.out.println("First Repeating: " + firstRepeatingChar("Java Developer"));
 
+    }
+
+
+    public static Character firstRepeatingChar(String str) {
+        //Create a hashmap
+        Set<Character> charSet = new HashSet<>();
+
+        //Iteration return char if add returns false
+        for (Character eachChar : str.toCharArray())
+            if (!charSet.add(eachChar))
+                return eachChar;
+        return null;
     }
 }
