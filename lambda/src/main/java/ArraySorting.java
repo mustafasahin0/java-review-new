@@ -16,13 +16,6 @@ public class ArraySorting {
         as.sort(quickSort);
         as.sort(bubbleSort);
 
-        List<Apple> appleList = new ArrayList<>();
-        appleList.add(new Apple("Green", 200));
-        appleList.add(new Apple("Red", 100));
-        appleList.add(new Apple("Green", 400));
-        appleList.add(new Apple("Red", 100));
-
-
     }
 
     private void sort(Sorting sorting) {
