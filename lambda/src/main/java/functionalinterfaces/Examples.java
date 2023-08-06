@@ -2,7 +2,7 @@ package functionalinterfaces;
 
 import java.util.function.*;
 
-public interface Examples {
+public class Examples {
 
     public static void main(String[] args) {
 
