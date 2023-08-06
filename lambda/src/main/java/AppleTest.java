@@ -30,4 +30,11 @@ public class AppleTest {
         return result;
     }
 
+    public static void prettyPrintApple(List<Apple> inventory, AppleFormatter formatter) {
+        for (Apple apple : inventory) {
+            String output = formatter.accept(apple);
+            System.out.println(output);
+        }
+    }
+
 }
