@@ -22,9 +22,10 @@ public class GenericTest {
 
         studentInfo(studentList);
         printInfo(teacherList);
+        System.out.println(returnLastElement(studentList));
     }
 
-    public static  void studentInfo(List<Student> studentList) {
+    public static void studentInfo(List<Student> studentList) {
         for (Student student : studentList) {
             System.out.println(student.toString());
         }
@@ -42,4 +43,8 @@ public class GenericTest {
     }
 
     // write a method that will take list of objects and returns the last element in the list
+
+    public static <T> T returnLastElement(List<T> personList) {
+        return personList.get(personList.size() - 1);
+    }
 }
