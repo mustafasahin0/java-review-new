@@ -2,14 +2,14 @@ package review;
 
 import lombok.*;
 
-//@Getter
-//@Setter
-//@ToString
+@Getter
+@Setter
+@ToString
 //@EqualsAndHashCode
 //@RequiredArgsConstructor
-//@AllArgsConstructor
-@Builder
-@ToString
+//@NoArgsConstructor
+@AllArgsConstructor
+//@Builder
 public class Car {
 
     private String make;
