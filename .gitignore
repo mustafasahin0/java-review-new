@@ -1,0 +1,5 @@
+/lambda/target/
+/generics/.gitignore
+/oop-review/target/
+/.idea/
+/collections-review/.gitignore
