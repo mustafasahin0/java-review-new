@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -7,12 +6,24 @@ public class TaskState {
 
     public static void main(String[] args) {
 
-        State state = new State();
-        state.addCity("Denver");
-        state.addCity("New York");
-        state.addCity("San Diego");
+        State va = new State();
+        va.addCity("McLean");
+        va.addCity("Arlington");
+        va.addCity("FallsChurch");
 
-        state.getCities().forEach(System.out::println);
+        State tx = new State();
+        tx.addCity("Dallas");
+        tx.addCity("Plano");
+        tx.addCity("Austin");
+        tx.addCity("Houston");
+
+        List<State> list = Arrays.asList(va, tx);
+        list.stream().map(State::getCities).forEach(System.out::println);
+
+        list.stream()
+                .map(State::getCities)
+                .flatMap(List::stream)
+                .forEach(System.out::println);
 
         // Task 2
         List<Integer> integerList = Arrays.asList(1, 2, 3, 4, 5);

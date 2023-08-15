@@ -30,18 +30,30 @@ public class TaskTrader {
         transactions.stream().map(Transaction::getTrader).filter(trader -> trader.getCity() == "Cambridge").sorted(Comparator.comparing(Trader::getName)).forEach(System.out::println);
 
         // 4. Return a string of all traders’ names sorted alphabetically.
-        transactions.stream().map(Transaction::getTrader).sorted(Comparator.comparing(Trader::getName)).forEach(System.out::println);
+        String result = transactions.stream()
+                .map(each -> each.getTrader().getName())
+                .distinct()
+                .sorted()
+                .reduce("", (name1, name2) -> name1 + name2);
+        System.out.println(result);
 
         // 5. Are any traders based in Milan?
-        transactions.stream().map(Transaction::getTrader).filter(each -> each.getCity() == "Milan").forEach(System.out::println);
+        boolean milanBased = transactions.stream()
+                .anyMatch(each -> each.getTrader().getCity().equals("Milan"));
+        System.out.println(milanBased);
 
         // 6. Print the values of all transactions from the traders living in Cambridge.
         transactions.stream().filter(each -> each.getTrader().getCity() == "Cambridge").map(Transaction::getValue).forEach(System.out::println);
 
         // 7. What is the highest value of all the transactions?
-        Optional<Transaction> maxValues = transactions.stream().max(Comparator.comparing(Transaction::getValue));
-        System.out.println(maxValues.get().getValue());
+        Optional<Integer> maxValues = transactions.stream()
+                .map(Transaction::getValue)
+                .reduce(Integer::max);
+        System.out.println(maxValues.get());
         // 8. Find the transaction with the smallest value.
+        Optional<Transaction> smValue = transactions.stream()
+                .reduce((t1, t2) -> t1.getValue() < t2.getValue() ? t1 : t2);
+
         Optional<Transaction> minTransaction = transactions.stream().min(Comparator.comparing(Transaction::getValue));
         System.out.println(minTransaction.get());
     }
