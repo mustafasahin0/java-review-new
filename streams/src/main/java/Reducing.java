@@ -28,5 +28,7 @@ public class Reducing {
 
         Long dishCount = DishData.getAll().stream().count();
         System.out.println(dishCount);
+
+
     }
 }
